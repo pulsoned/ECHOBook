@@ -64,4 +64,17 @@ export const bl1Shields = [
     loot_pool: "World Drop",
     key: "endothermicshield",
   },
+  {
+    name: "Fire Nova Shield",
+    rarity: "Epic",
+    shield_type: "Nova",
+    manufacturer: "Vladof",
+    elements: "I",
+    content: "Base Game",
+    icon_source: require("../BL1/shields/firenovashield.png"),
+    flavor_text: "",
+    card_image: require("../BL1/shields/firenovashield.png"),
+    loot_pool: "World Drop",
+    key: "firenovashield",
+  },
 ];
