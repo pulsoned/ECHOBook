@@ -1,0 +1,16 @@
+export default {
+  primary: "#282828",
+  secondary: "#a4a4a8",
+  black: "#000",
+  white: "#fff",
+  common: "#fff",
+  uncommon: "#76F44B",
+  rare: "#28a6ff",
+  epic: "#d07bff",
+  legendary: "#ffc338",
+  pearlescent: "#4df2f2",
+  glitch: "#ff99c8",
+  seraph: "#ff99c8",
+  effervescent: "#ff7570",
+  etech: "#ff5cec",
+};
