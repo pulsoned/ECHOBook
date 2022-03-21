@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 export default function App() {
   let [fontsLoaded] = useFonts({
     "Lato-Regular": require("./app/assets/fonts/Lato-Regular.ttf"),
+    "Lato-Italic": require("./app/assets/fonts/Lato-Italic.ttf"),
   });
 
   if (!fontsLoaded) {

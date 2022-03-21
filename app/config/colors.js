@@ -1,6 +1,8 @@
 export default {
   primary: "#282828",
   secondary: "#a4a4a8",
+  tertiary: "#373737",
+  flavor: "#ff5751",
   black: "#000",
   white: "#fff",
   common: "#fff",

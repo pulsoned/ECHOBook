@@ -1,3 +1,4 @@
+import { Lato_100Thin_Italic } from "@expo-google-fonts/lato";
 import React from "react";
 import {
   View,
@@ -155,99 +156,97 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
       resizeMode="repeat"
       style={styles.bg}
     >
-      <View style={styles.scroll}>
-        <ScrollView>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("BL1Weapons")}
-            style={styles.backbutton}
-          >
-            <View>
-              <Text style={styles.backtext}>{"<"}</Text>
-            </View>
-          </TouchableOpacity>
-          {/* This View contains the heading for this screen. */}
-          <View style={styles.headingview}>
-            <Text style={styles.headingtext}>{item.name}</Text>
+      <ScrollView style={styles.scroll}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("BL1Weapons")}
+          style={styles.backbutton}
+        >
+          <View>
+            <Text style={styles.backtext}>{"<"}</Text>
           </View>
-        </ScrollView>
-      </View>
+        </TouchableOpacity>
+        {/* This View contains the heading for this screen. */}
+        <View style={styles.headingview}>
+          <Text style={styles.subheadingtext}>Borderlands 1</Text>
+        </View>
+        <View style={styles.imageView}>
+          <Text
+            style={[{ color: determineColor(item.rarity) }, styles.headingtext]}
+          >
+            {item.name}
+          </Text>
+          <Image style={styles.itemImage} source={item.icon_source} />
+          <View style={styles.flavorTextView}>
+            <Text style={styles.flavorText}>{item.flavor_text}</Text>
+          </View>
+        </View>
+        <View style={styles.infoView1}>
+          <View style={styles.textBorder}>
+            <Text style={styles.info1Text}>Content</Text>
+            <Text style={styles.info1Text}>Weapon Type</Text>
+            <Text style={styles.info1Text}>Rarity</Text>
+            <Text style={styles.info1Text}>Manufacturer</Text>
+            <Text style={styles.info1Text}>Elements</Text>
+          </View>
+        </View>
+      </ScrollView>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  textBorder: {},
+  info1Text: {
+    color: colors.white,
+    fontFamily: "Lato-Regular",
+    backgroundColor: colors.primary,
+    alignSelf: "flex-start",
+    padding: 10,
+    fontSize: 17,
+    borderRadius: 10,
+    overflow: "hidden",
+    marginHorizontal: 5,
+    marginVertical: 5,
+  },
+  flavorText: {
+    color: colors.flavor,
+    fontFamily: "Lato-Italic",
+  },
+  flavorTextView: {
+    backgroundColor: colors.primary,
+    alignSelf: "flex-start",
+    padding: 5,
+    borderTopRightRadius: 10,
+    borderBottomLeftRadius: 10,
+    maxWidth: "95%",
+  },
   // Style for the background of the screen.
   bg: {
     flex: 1,
+    // flexDirection: "column",
     justifyContent: "center",
+    alignContent: "center",
   },
-  // Style for the buttons as a whole.
-  button: {
-    backgroundColor: colors.primary,
-    borderRadius: 10,
-    borderWidth: 1,
-    width: "97%",
+  itemImage: {
+    width: "95%",
     height: 200,
-    alignSelf: "center",
-    margin: 2,
-    marginTop: 6,
-    elevation: 20,
-    shadowColor: colors.black,
-  },
-  // Style for the name of the item on the button.
-  buttonText: {
-    fontFamily: "Lato-Regular",
-    flex: 1,
-    fontSize: 30,
-    alignSelf: "center",
-    textAlign: "center",
-  },
-  // Style for the image of the item on the button.
-  buttonImage: {
     resizeMode: "contain",
-    flex: 1,
     alignSelf: "center",
   },
-  // Style for the view that contains everything on the buttons.
-  buttonView: {
-    flex: 1,
-    flexDirection: "row",
-  },
-  // Style for the dynamic descriptive text about the item on the buttons.
-  descriptiontext: {
-    color: colors.white,
-    fontFamily: "Lato-Regular",
-    flex: 0.2,
-    fontSize: 15,
-    marginLeft: 10,
-    marginRight: 10,
-  },
-  // Style for the non-dynamic descriptive text about the item on the buttons.
-  descriptionhelper: {
-    color: colors.white,
-    fontFamily: "Lato-Regular",
-    textDecorationStyle: "solid",
-    textDecorationLine: "underline",
-    fontSize: 15,
-    marginLeft: 10,
-    marginRight: 10,
-  },
-  // Style for the View that includes the descriptive text on the buttons.
-  descriptionview: {
-    flex: 0.4,
-    justifyContent: "center",
-  },
-  // Style for the View that includes the name and picture of the item.
-  namepictureview: {
-    borderRightColor: colors.black,
-    borderRightWidth: 2,
-    flex: 0.6,
-    paddingTop: 20,
+  imageView: {
+    backgroundColor: colors.tertiary,
+    width: "95%",
+    marginTop: 10,
+    justifyContent: "flex-start",
+    borderRadius: 10,
+    borderColor: colors.black,
+    borderWidth: 1,
+    alignSelf: "center",
   },
   // Style for the ScrollView (to make sure the physical phone doesn't cover anything).
   scroll: {
-    paddingTop: 40,
-    paddingBottom: 20,
+    alignContent: "center",
+    paddingTop: 50,
   },
   // Style for the element icons in the descriptive section on the button.
   elementimage: {
@@ -261,16 +260,25 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginTop: -20,
   },
-  // Style for the view containing the heading of the screen.
+  infoView1: {
+    backgroundColor: colors.tertiary,
+    width: "95%",
+    marginTop: 30,
+    borderRadius: 10,
+    borderColor: colors.black,
+    borderWidth: 1,
+    alignSelf: "center",
+  },
   headingview: {
-    alignContent: "center",
+    marginTop: 30,
   },
   // Style for the heading text.
   headingtext: {
-    color: colors.white,
     fontFamily: "Lato-Regular",
     alignSelf: "center",
     fontSize: 30,
+    textAlign: "center",
+    marginTop: 5,
   },
   // Style for the subheading text.
   subheadingtext: {
@@ -278,9 +286,13 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontFamily: "Lato-Regular",
     fontSize: 20,
+    textAlign: "center",
   },
   // Style for the back button Touchable.
   backbutton: {
+    position: "absolute",
+    left: 10,
+    top: -10,
     zIndex: 100,
     elevation: 100,
   },
