@@ -307,12 +307,13 @@ const styles = StyleSheet.create({
   elementimage: {
     resizeMode: "contain",
     flex: 0.15,
+    margin: 1,
   },
   // Style for the View containing the element icons.
   elementimageview: {
     flexDirection: "row",
     flex: 0.3,
-    marginLeft: 10,
+    marginHorizontal: 10,
     marginTop: -20,
   },
   // Style for the view containing the heading of the screen.

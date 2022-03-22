@@ -148,6 +148,26 @@ function determineRadiation(elements) {
   }
 }
 
+function showDropRates(sources, rates) {
+  let fullView = [];
+  fullView.push(<View></View>);
+  if (sources.length > 0) {
+    fullView.push(
+      <Text style={[styles.headingtext, { fontSize: 20 }]}>Drop Rates</Text>
+    );
+  }
+  for (let i = 0; i < sources.length; i++) {
+    fullView.push(
+      <View style={styles.textBorder}>
+        <Text style={styles.info1Text}>{sources[i]}</Text>
+        <Text style={styles.info1Info}>{rates[i]}</Text>
+      </View>
+    );
+  }
+
+  return fullView;
+}
+
 export default function BL1WeaponInfoScreen({ route, navigation }) {
   const item = route.params;
   return (
@@ -156,7 +176,7 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
       resizeMode="repeat"
       style={styles.bg}
     >
-      <ScrollView style={styles.scroll}>
+      <ScrollView style={styles.scroll} stickyHeaderIndices={[0]}>
         <TouchableOpacity
           onPress={() => navigation.navigate("BL1Weapons")}
           style={styles.backbutton}
@@ -171,7 +191,7 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
         </View>
         <View style={styles.imageView}>
           <Text
-            style={[{ color: determineColor(item.rarity) }, styles.headingtext]}
+            style={[styles.headingtext, { color: determineColor(item.rarity) }]}
           >
             {item.name}
           </Text>
@@ -183,10 +203,61 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
         <View style={styles.infoView1}>
           <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Content</Text>
+            <Text style={styles.info1Info}>{item.content}</Text>
+          </View>
+          <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Weapon Type</Text>
+            <Text style={styles.info1Info}>{item.weapon_type}</Text>
+          </View>
+          <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Rarity</Text>
+            <Text
+              style={[styles.info1Info, { color: determineColor(item.rarity) }]}
+            >
+              {item.rarity}
+            </Text>
+          </View>
+          <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Manufacturer</Text>
+            <Text style={styles.info1Info}>{item.manufacturer}</Text>
+          </View>
+          <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Elements</Text>
+            {determineKinetic(item.elements)}
+            {determineIncendiary(item.elements)}
+            {determineShock(item.elements)}
+            {determineCorrosive(item.elements)}
+            {determineExplosive(item.elements)}
+            {determineSlag(item.elements)}
+            {determineCryo(item.elements)}
+            {determineRadiation(item.elements)}
+          </View>
+        </View>
+
+        <View style={styles.cardstyle}>
+          <Image style={styles.cardimage} source={item.card_image}></Image>
+        </View>
+        <View style={styles.infoView2}>
+          <Text style={styles.subheadingtext}>{item.name}</Text>
+          <Text style={styles.headingtext}>How to Farm</Text>
+          <View style={styles.info2Subview}>
+            <Text style={[styles.headingtext, { fontSize: 20 }]}>
+              Assigned Loot Pool
+            </Text>
+            <View style={styles.lootpool}>
+              <Text style={[styles.headingtext, { fontSize: 15 }]}>
+                {item.loot_pool}
+              </Text>
+              <Text
+                style={[
+                  styles.headingtext,
+                  { fontSize: 12, textAlign: "left" },
+                ]}
+              >
+                {item.pool_description}
+              </Text>
+            </View>
+            {showDropRates(item.drop_sources, item.drop_rates)}
           </View>
         </View>
       </ScrollView>
@@ -195,7 +266,60 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
 }
 
 const styles = StyleSheet.create({
-  textBorder: {},
+  lootpool: {
+    backgroundColor: colors.primary,
+    borderRadius: 10,
+    borderColor: colors.black,
+    borderWidth: 1,
+    paddingBottom: 5,
+    margin: 10,
+  },
+  info2Subview: {
+    backgroundColor: colors.tertiary,
+    borderRadius: 10,
+    borderColor: colors.black,
+    borderWidth: 1,
+    paddingVertical: 10,
+    marginTop: 10,
+  },
+  infoView2: {
+    width: "95%",
+    justifyContent: "center",
+    alignSelf: "center",
+    marginBottom: 30,
+  },
+  cardstyle: {
+    width: "100%",
+    justifyContent: "flex-start",
+    alignSelf: "center",
+  },
+  cardimage: {
+    width: "95%",
+    resizeMode: "contain",
+    alignSelf: "center",
+  },
+  info1Info: {
+    alignSelf: "flex-end",
+    color: colors.white,
+    fontFamily: "Lato-Regular",
+    backgroundColor: colors.primary,
+    padding: 8,
+    fontSize: 17,
+    borderRadius: 20,
+    borderColor: colors.black,
+    borderWidth: 1,
+    marginHorizontal: 5,
+    marginVertical: 5,
+    overflow: "hidden",
+  },
+  textBorder: {
+    borderBottomColor: colors.primary,
+    borderBottomWidth: 3,
+    width: "95%",
+    alignSelf: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
   info1Text: {
     color: colors.white,
     fontFamily: "Lato-Regular",
@@ -223,7 +347,6 @@ const styles = StyleSheet.create({
   // Style for the background of the screen.
   bg: {
     flex: 1,
-    // flexDirection: "column",
     justifyContent: "center",
     alignContent: "center",
   },
@@ -246,12 +369,14 @@ const styles = StyleSheet.create({
   // Style for the ScrollView (to make sure the physical phone doesn't cover anything).
   scroll: {
     alignContent: "center",
-    paddingTop: 50,
   },
   // Style for the element icons in the descriptive section on the button.
   elementimage: {
     resizeMode: "contain",
-    flex: 0.15,
+    flex: 0.3,
+    maxHeight: 35,
+    marginHorizontal: 2,
+    alignSelf: "center",
   },
   // Style for the View containing the element icons.
   elementimageview: {
@@ -268,12 +393,14 @@ const styles = StyleSheet.create({
     borderColor: colors.black,
     borderWidth: 1,
     alignSelf: "center",
+    paddingBottom: 10,
   },
   headingview: {
-    marginTop: 30,
+    marginTop: -10,
   },
   // Style for the heading text.
   headingtext: {
+    color: colors.white,
     fontFamily: "Lato-Regular",
     alignSelf: "center",
     fontSize: 30,
@@ -283,7 +410,6 @@ const styles = StyleSheet.create({
   // Style for the subheading text.
   subheadingtext: {
     color: colors.secondary,
-    alignSelf: "center",
     fontFamily: "Lato-Regular",
     fontSize: 20,
     textAlign: "center",
@@ -292,7 +418,7 @@ const styles = StyleSheet.create({
   backbutton: {
     position: "absolute",
     left: 10,
-    top: -10,
+    top: 30,
     zIndex: 100,
     elevation: 100,
   },
