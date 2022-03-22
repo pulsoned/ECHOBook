@@ -150,17 +150,23 @@ function determineRadiation(elements) {
 
 function showDropRates(sources, rates) {
   let fullView = [];
-  fullView.push(<View></View>);
+  fullView.push(<View key="dropview"></View>);
   if (sources.length > 0) {
     fullView.push(
-      <Text style={[styles.headingtext, { fontSize: 20 }]}>Drop Rates</Text>
+      <Text key="droprates" style={[styles.headingtext, { fontSize: 20 }]}>
+        Drop Rates
+      </Text>
     );
   }
   for (let i = 0; i < sources.length; i++) {
     fullView.push(
-      <View style={styles.textBorder}>
-        <Text style={styles.info1Text}>{sources[i]}</Text>
-        <Text style={styles.info1Info}>{rates[i]}</Text>
+      <View key={"view" + i} style={styles.textBorder}>
+        <Text key={"source" + i} style={styles.info1Text}>
+          {sources[i]}
+        </Text>
+        <Text key={"rate" + i} style={styles.info1Info}>
+          {rates[i]}
+        </Text>
       </View>
     );
   }
@@ -271,7 +277,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: colors.black,
     borderWidth: 1,
-    paddingBottom: 5,
+    padding: 5,
     margin: 10,
   },
   info2Subview: {
