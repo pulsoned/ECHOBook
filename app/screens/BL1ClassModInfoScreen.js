@@ -180,7 +180,19 @@ function showFlavorText(flavorText) {
   }
 }
 
-export default function BL1WeaponInfoScreen({ route, navigation }) {
+function showSkillBonuses(bonuses) {
+  let fullView = [];
+  for (let i = 0; i < bonuses.length; i++) {
+    fullView.push(
+      <Text key={"perk" + i} style={styles.info1Info}>
+        {bonuses[i]}
+      </Text>
+    );
+  }
+  return fullView;
+}
+
+export default function BL1ClassModInfoScreen({ route, navigation }) {
   const item = route.params;
   return (
     <ImageBackground
@@ -190,7 +202,7 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
     >
       <ScrollView style={styles.scroll} stickyHeaderIndices={[0]}>
         <TouchableOpacity
-          onPress={() => navigation.navigate("BL1Weapons")}
+          onPress={() => navigation.navigate("BL1ClassMods")}
           style={styles.backbutton}
         >
           <View>
@@ -216,8 +228,8 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
             <Text style={styles.info1Info}>{item.content}</Text>
           </View>
           <View style={styles.textBorder}>
-            <Text style={styles.info1Text}>Weapon Type</Text>
-            <Text style={styles.info1Info}>{item.weapon_type}</Text>
+            <Text style={styles.info1Text}>Class</Text>
+            <Text style={styles.info1Info}>{item.class}</Text>
           </View>
           <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Rarity</Text>
@@ -232,15 +244,8 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
             <Text style={styles.info1Info}>{item.manufacturer}</Text>
           </View>
           <View style={styles.textBorder}>
-            <Text style={styles.info1Text}>Elements</Text>
-            {determineKinetic(item.elements)}
-            {determineIncendiary(item.elements)}
-            {determineShock(item.elements)}
-            {determineCorrosive(item.elements)}
-            {determineExplosive(item.elements)}
-            {determineSlag(item.elements)}
-            {determineCryo(item.elements)}
-            {determineRadiation(item.elements)}
+            <Text style={styles.info1Text}>Skill Bonuses</Text>
+            <View>{showSkillBonuses(item.skill_bonuses)}</View>
           </View>
         </View>
 
@@ -310,6 +315,7 @@ const styles = StyleSheet.create({
   },
   info1Info: {
     alignSelf: "flex-end",
+    flexDirection: "column-reverse",
     color: colors.white,
     fontFamily: "Lato-Regular",
     backgroundColor: colors.primary,

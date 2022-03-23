@@ -179,7 +179,7 @@ export default function BL1GrenadeSelectionScreen(props) {
             <TouchableHighlight
               key={item.key}
               style={styles.button}
-              onPress={() => Alert.alert(item.name)}
+              onPress={() => props.navigation.navigate("BL1GrenadeInfo", item)}
             >
               <View style={styles.buttonView}>
                 {/* This is the section of the button containing the name of the item and its picture. */}
@@ -345,6 +345,7 @@ const styles = StyleSheet.create({
     top: 0,
     zIndex: 100,
     elevation: 100,
+    width: 50,
   },
   // Style for the text the back button Touchable contains.
   backtext: {

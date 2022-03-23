@@ -319,8 +319,8 @@ const styles = StyleSheet.create({
   // Style for the view containing the heading of the screen.
   headingview: {
     alignContent: "center",
-    marginBottom: 10,
     marginTop: -70,
+    marginBottom: 10,
   },
   // Style for the heading text.
   headingtext: {
@@ -343,6 +343,7 @@ const styles = StyleSheet.create({
     top: 0,
     zIndex: 100,
     elevation: 100,
+    width: 50,
   },
   // Style for the text the back button Touchable contains.
   backtext: {

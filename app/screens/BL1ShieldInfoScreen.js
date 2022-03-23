@@ -180,7 +180,7 @@ function showFlavorText(flavorText) {
   }
 }
 
-export default function BL1WeaponInfoScreen({ route, navigation }) {
+export default function BL1ShieldInfoScreen({ route, navigation }) {
   const item = route.params;
   return (
     <ImageBackground
@@ -190,7 +190,7 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
     >
       <ScrollView style={styles.scroll} stickyHeaderIndices={[0]}>
         <TouchableOpacity
-          onPress={() => navigation.navigate("BL1Weapons")}
+          onPress={() => navigation.navigate("BL1Shields")}
           style={styles.backbutton}
         >
           <View>
@@ -216,8 +216,8 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
             <Text style={styles.info1Info}>{item.content}</Text>
           </View>
           <View style={styles.textBorder}>
-            <Text style={styles.info1Text}>Weapon Type</Text>
-            <Text style={styles.info1Info}>{item.weapon_type}</Text>
+            <Text style={styles.info1Text}>Shield Type</Text>
+            <Text style={styles.info1Info}>{item.shield_type}</Text>
           </View>
           <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Rarity</Text>

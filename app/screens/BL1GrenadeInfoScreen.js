@@ -180,7 +180,7 @@ function showFlavorText(flavorText) {
   }
 }
 
-export default function BL1WeaponInfoScreen({ route, navigation }) {
+export default function BL1GrenadeInfoScreen({ route, navigation }) {
   const item = route.params;
   return (
     <ImageBackground
@@ -190,7 +190,7 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
     >
       <ScrollView style={styles.scroll} stickyHeaderIndices={[0]}>
         <TouchableOpacity
-          onPress={() => navigation.navigate("BL1Weapons")}
+          onPress={() => navigation.navigate("BL1Grenades")}
           style={styles.backbutton}
         >
           <View>
@@ -216,8 +216,8 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
             <Text style={styles.info1Info}>{item.content}</Text>
           </View>
           <View style={styles.textBorder}>
-            <Text style={styles.info1Text}>Weapon Type</Text>
-            <Text style={styles.info1Info}>{item.weapon_type}</Text>
+            <Text style={styles.info1Text}>Grenade Type</Text>
+            <Text style={styles.info1Info}>{item.grenade_type}</Text>
           </View>
           <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Rarity</Text>
@@ -233,11 +233,11 @@ export default function BL1WeaponInfoScreen({ route, navigation }) {
           </View>
           <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Elements</Text>
+            {determineExplosive(item.elements)}
             {determineKinetic(item.elements)}
             {determineIncendiary(item.elements)}
             {determineShock(item.elements)}
             {determineCorrosive(item.elements)}
-            {determineExplosive(item.elements)}
             {determineSlag(item.elements)}
             {determineCryo(item.elements)}
             {determineRadiation(item.elements)}
