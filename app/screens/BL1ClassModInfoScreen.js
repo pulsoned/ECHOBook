@@ -144,6 +144,7 @@ function determineRadiation(elements) {
   }
 }
 
+// Function outputs the View for the drop rates of the item and does not output anything if there is no drop source listed.
 function showDropRates(sources, rates) {
   let fullView = [];
   fullView.push(<View key="dropview"></View>);
@@ -170,6 +171,7 @@ function showDropRates(sources, rates) {
   return fullView;
 }
 
+// Function determines if the flavor text View should be output based on if there is flavor text or not
 function showFlavorText(flavorText) {
   if (flavorText != "") {
     return (
@@ -180,6 +182,7 @@ function showFlavorText(flavorText) {
   }
 }
 
+// Function allows display of the class mod's skill bonuses.
 function showSkillBonuses(bonuses) {
   let fullView = [];
   for (let i = 0; i < bonuses.length; i++) {
@@ -195,12 +198,15 @@ function showSkillBonuses(bonuses) {
 export default function BL1ClassModInfoScreen({ route, navigation }) {
   const item = route.params;
   return (
+    // This is the background for this screen
     <ImageBackground
       source={require("../assets/background.png")}
       resizeMode="repeat"
       style={styles.bg}
     >
+      {/* Allows the screen to have more info via scrolling */}
       <ScrollView style={styles.scroll} stickyHeaderIndices={[0]}>
+        {/* This Touchable is the back button */}
         <TouchableOpacity
           onPress={() => navigation.navigate("BL1ClassMods")}
           style={styles.backbutton}
@@ -219,9 +225,11 @@ export default function BL1ClassModInfoScreen({ route, navigation }) {
           >
             {item.name}
           </Text>
+          {/* This is the image of the specific item */}
           <Image style={styles.itemImage} source={item.icon_source} />
           {showFlavorText(item.flavor_text)}
         </View>
+        {/* This view contains information on Content, Type, Rarity, Manufacturer, and Elements */}
         <View style={styles.infoView1}>
           <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Content</Text>
@@ -245,6 +253,7 @@ export default function BL1ClassModInfoScreen({ route, navigation }) {
           </View>
           <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Skill Bonuses</Text>
+            {/* This function displays the different skill bonuses that the class mod has */}
             <View>{showSkillBonuses(item.skill_bonuses)}</View>
           </View>
         </View>
@@ -281,6 +290,7 @@ export default function BL1ClassModInfoScreen({ route, navigation }) {
 }
 
 const styles = StyleSheet.create({
+  // Style for the information on the item's Loot Pool.
   lootpool: {
     backgroundColor: colors.primary,
     borderRadius: 10,
@@ -289,6 +299,7 @@ const styles = StyleSheet.create({
     padding: 5,
     margin: 10,
   },
+  // Style for the View containing information on the item's Loot Pool.
   info2Subview: {
     backgroundColor: colors.tertiary,
     borderRadius: 10,
@@ -297,22 +308,26 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     marginTop: 10,
   },
+  // Style for the View containing the drop information about the item.
   infoView2: {
     width: "95%",
     justifyContent: "center",
     alignSelf: "center",
     marginBottom: 30,
   },
+  //Style for the View containing the card image.
   cardstyle: {
     width: "100%",
     justifyContent: "flex-start",
     alignSelf: "center",
   },
+  // Style for the item card image.
   cardimage: {
     width: "95%",
     resizeMode: "contain",
     alignSelf: "center",
   },
+  // Style for the actual information within the basic information View.
   info1Info: {
     alignSelf: "flex-end",
     flexDirection: "column-reverse",
@@ -328,6 +343,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     overflow: "hidden",
   },
+  // Style for the bottom border within the info views between each label.
   textBorder: {
     borderBottomColor: colors.primary,
     borderBottomWidth: 3,
@@ -336,6 +352,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  // Style for the labels for the info within the basic info View.
   info1Text: {
     color: colors.white,
     fontFamily: "Lato-Regular",
@@ -348,10 +365,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     marginVertical: 5,
   },
+  // Style for the item's flavor text.
   flavorText: {
     color: colors.flavor,
     fontFamily: "Lato-Italic",
   },
+  // Style for the view containing the item's flavor text.
   flavorTextView: {
     backgroundColor: colors.primary,
     alignSelf: "flex-start",
@@ -366,12 +385,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
   },
+  // Style for the item's display image.
   itemImage: {
     width: "95%",
     height: 200,
     resizeMode: "contain",
     alignSelf: "center",
   },
+  // Style for the View containing the item's display image.
   imageView: {
     backgroundColor: colors.tertiary,
     width: "95%",
@@ -387,20 +408,13 @@ const styles = StyleSheet.create({
     alignContent: "center",
     marginTop: 10,
   },
-  // Style for the element icons in the descriptive section on the button.
+  // Style for the element icons in first info view.
   elementimage: {
     resizeMode: "contain",
     flex: 0.3,
     maxHeight: 35,
     marginHorizontal: 2,
     alignSelf: "center",
-  },
-  // Style for the View containing the element icons.
-  elementimageview: {
-    flexDirection: "row",
-    flex: 0.3,
-    marginLeft: 10,
-    marginTop: -20,
   },
   infoView1: {
     backgroundColor: colors.tertiary,
@@ -412,6 +426,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     paddingBottom: 10,
   },
+  // Style for the view containing the page's headings.
   headingview: {
     marginTop: -10,
   },
