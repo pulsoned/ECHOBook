@@ -32,7 +32,7 @@ function BLTPSSelectionScreen(props) {
         </View>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Weapons Pressed")}
+          onPress={() => props.navigation.navigate("BLTPSWeapons")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>
@@ -48,7 +48,7 @@ function BLTPSSelectionScreen(props) {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Shields Pressed")}
+          onPress={() => props.navigation.navigate("BLTPSShields")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>
@@ -64,7 +64,7 @@ function BLTPSSelectionScreen(props) {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Grenades Pressed")}
+          onPress={() => props.navigation.navigate("BLTPSGrenades")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>

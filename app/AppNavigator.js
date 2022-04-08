@@ -14,6 +14,9 @@ import BL1WeaponInfoScreen from "./screens/BL1WeaponInfoScreen";
 import BL1ShieldInfoScreen from "./screens/BL1ShieldInfoScreen";
 import BL1GrenadeInfoScreen from "./screens/BL1GrenadeInfoScreen";
 import BL1ClassModInfoScreen from "./screens/BL1ClassModInfoScreen";
+import BLTPSWeaponSelectionScreen from "./screens/BLTPSWeaponSelectionScreen";
+import BLTPSShieldSelectionScreen from "./screens/BLTPSShieldSelectionScreen";
+import BLTPSGrenadeSelectionScreen from "./screens/BLTPSGrenadeSelectionScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +44,18 @@ const AppNavigator = () => (
       <Stack.Screen name="BL1ShieldInfo" component={BL1ShieldInfoScreen} />
       <Stack.Screen name="BL1GrenadeInfo" component={BL1GrenadeInfoScreen} />
       <Stack.Screen name="BL1ClassModInfo" component={BL1ClassModInfoScreen} />
+      <Stack.Screen
+        name="BLTPSWeapons"
+        component={BLTPSWeaponSelectionScreen}
+      />
+      <Stack.Screen
+        name="BLTPSShields"
+        component={BLTPSShieldSelectionScreen}
+      />
+      <Stack.Screen
+        name="BLTPSGrenades"
+        component={BLTPSGrenadeSelectionScreen}
+      />
     </Stack.Navigator>
   </NavigationContainer>
 );
