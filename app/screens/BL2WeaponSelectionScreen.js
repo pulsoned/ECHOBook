@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import colors from "../config/colors";
-import { bltpsClassMods } from "../assets/BLTPS/bltpsclassmods";
+import { bl2Weapons } from "../assets/BL2/bl2weapons";
 
 // This function determines what color the text for each weapon should be based on its rarity.
 function determineColor(rarity) {
@@ -51,7 +51,103 @@ function determineColor(rarity) {
   }
 }
 
-export default function BLTPSClassModSelectionScreen(props) {
+// This function determines whether or not the image for kinetic damage should be shown on a weapon's button.
+function determineKinetic(elements) {
+  if (elements.includes("K")) {
+    return (
+      <Image
+        style={styles.elementimage}
+        source={require("../assets/kinetic.png")}
+      />
+    );
+  }
+}
+
+// This function determines whether or not the image for incendiary damage should be shown on a weapon's button.
+function determineIncendiary(elements) {
+  if (elements.includes("I")) {
+    return (
+      <Image
+        style={styles.elementimage}
+        source={require("../assets/incendiary.png")}
+      />
+    );
+  }
+}
+
+// This function determines whether or not the image for shock damage should be shown on a weapon's button.
+function determineShock(elements) {
+  if (elements.includes("S")) {
+    return (
+      <Image
+        style={styles.elementimage}
+        source={require("../assets/shock.png")}
+      />
+    );
+  }
+}
+
+// This function determines whether or not the image for corrosive damage should be shown on a weapon's button.
+function determineCorrosive(elements) {
+  if (elements.includes("C")) {
+    return (
+      <Image
+        style={styles.elementimage}
+        source={require("../assets/corrosive.png")}
+      />
+    );
+  }
+}
+
+// This function determines whether or not the image for explosive damage should be shown on a weapon's button.
+function determineExplosive(elements) {
+  if (elements.includes("E")) {
+    return (
+      <Image
+        style={styles.elementimage}
+        source={require("../assets/explosive.png")}
+      />
+    );
+  }
+}
+
+// This function determines whether or not the image for slag damage should be shown on a weapon's button.
+function determineSlag(elements) {
+  if (elements.includes("G")) {
+    return (
+      <Image
+        style={styles.elementimage}
+        source={require("../assets/slag.png")}
+      />
+    );
+  }
+}
+
+// This function determines whether or not the image for cryo damage should be shown on a weapon's button.
+function determineCryo(elements) {
+  if (elements.includes("Y")) {
+    return (
+      <Image
+        style={styles.elementimage}
+        source={require("../assets/cryo.png")}
+      />
+    );
+  }
+}
+
+// This function determines whether or not the image for radiation damage should be shown on a weapon's button.
+function determineRadiation(elements) {
+  if (elements.includes("R")) {
+    return (
+      <Image
+        style={styles.elementimage}
+        source={require("../assets/radiation.png")}
+      />
+    );
+  }
+}
+
+export default function BL2WeaponSelectionScreen(props) {
   return (
     <ImageBackground
       source={require("../assets/background.png")}
@@ -64,7 +160,7 @@ export default function BLTPSClassModSelectionScreen(props) {
         <ScrollView stickyHeaderIndices={[0]}>
           {/* This Touchable is the back button. */}
           <TouchableOpacity
-            onPress={() => props.navigation.navigate("BLTPS")}
+            onPress={() => props.navigation.navigate("BL2")}
             style={styles.backbutton}
           >
             <View>
@@ -73,19 +169,17 @@ export default function BLTPSClassModSelectionScreen(props) {
           </TouchableOpacity>
           {/* This View contains the heading for this screen. */}
           <View style={styles.headingview}>
-            <Text style={styles.headingtext}>Class Mods List</Text>
-            <Text style={styles.subheadingtext}>Borderlands TPS</Text>
+            <Text style={styles.headingtext}>Weapons List</Text>
+            <Text style={styles.subheadingtext}>Borderlands 2</Text>
           </View>
-          {/* This map allows the app to dynamically generate the list of items/buttons based on the JSON object in the 
-           file. */}
-          {bltpsClassMods.map((item) => (
-            // This Touchable represents the template for each button for the list of items.
+          {/* This map allows the app to dynamically generate the list of weapons/buttons based on the JSON object in the 
+          weapons file. */}
+          {bl2Weapons.map((item) => (
+            // This Touchable represents the template for each button for the list of weapons.
             <TouchableHighlight
               key={item.key}
               style={styles.button}
-              onPress={() =>
-                props.navigation.navigate("BLTPSClassModInfo", item)
-              }
+              onPress={() => props.navigation.navigate("BL2WeaponInfo", item)}
             >
               <View style={styles.buttonView}>
                 {/* This is the section of the button containing the name of the item and its picture. */}
@@ -103,14 +197,28 @@ export default function BLTPSClassModSelectionScreen(props) {
                 </View>
                 {/* This View includes some extra descriptive information about an item. */}
                 <View style={styles.descriptionview}>
-                  <Text style={styles.descriptionhelper}>Class</Text>
-                  <Text style={styles.descriptiontext}>{item.class}</Text>
+                  <Text style={styles.descriptionhelper}>Weapon Type</Text>
+                  <Text style={styles.descriptiontext}>{item.weapon_type}</Text>
                   <Text style={styles.descriptionhelper}>Manufacturer</Text>
                   <Text style={styles.descriptiontext}>
                     {item.manufacturer}
                   </Text>
                   <Text style={styles.descriptionhelper}>Content</Text>
                   <Text style={styles.descriptiontext}>{item.content}</Text>
+                  <Text style={styles.descriptionhelper}>Elements</Text>
+                  <View style={styles.elementimageview}>
+                    {/* Each of these functions determines whether or not the icon for a certain damage
+                    type should appear on the weapon's button. I'm not sure how to do it all in one function or I would.
+                    Extra modularity never hurt anyone anyway I guess. */}
+                    {determineKinetic(item.elements)}
+                    {determineIncendiary(item.elements)}
+                    {determineShock(item.elements)}
+                    {determineCorrosive(item.elements)}
+                    {determineExplosive(item.elements)}
+                    {determineSlag(item.elements)}
+                    {determineCryo(item.elements)}
+                    {determineRadiation(item.elements)}
+                  </View>
                 </View>
               </View>
             </TouchableHighlight>
@@ -133,6 +241,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     width: "97%",
+    height: 200,
     alignSelf: "center",
     margin: 2,
     marginTop: 6,
@@ -142,30 +251,30 @@ const styles = StyleSheet.create({
   // Style for the name of the item on the button.
   buttonText: {
     fontFamily: "Lato-Regular",
+    flex: 1,
     fontSize: 30,
     alignSelf: "center",
     textAlign: "center",
-    paddingBottom: 5,
   },
   // Style for the image of the item on the button.
   buttonImage: {
     resizeMode: "contain",
+    flex: 1,
     alignSelf: "center",
-    width: "97%",
-    height: 140,
   },
   // Style for the view that contains everything on the buttons.
   buttonView: {
+    flex: 1,
     flexDirection: "row",
-    paddingTop: 5,
   },
   // Style for the dynamic descriptive text about the item on the buttons.
   descriptiontext: {
     color: colors.white,
     fontFamily: "Lato-Regular",
+    flex: 0.2,
     fontSize: 15,
     marginLeft: 10,
-    paddingVertical: 5,
+    marginRight: 10,
   },
   // Style for the non-dynamic descriptive text about the item on the buttons.
   descriptionhelper: {
@@ -181,13 +290,13 @@ const styles = StyleSheet.create({
   descriptionview: {
     flex: 0.4,
     justifyContent: "center",
-    paddingVertical: 5,
   },
   // Style for the View that includes the name and picture of the item.
   namepictureview: {
     borderRightColor: colors.black,
     borderRightWidth: 2,
     flex: 0.6,
+    paddingTop: 20,
   },
   // Style for the ScrollView (to make sure the physical phone doesn't cover anything).
   scroll: {
@@ -198,19 +307,20 @@ const styles = StyleSheet.create({
   elementimage: {
     resizeMode: "contain",
     flex: 0.15,
-    height: 30,
     margin: 1,
   },
   // Style for the View containing the element icons.
   elementimageview: {
     flexDirection: "row",
+    flex: 0.3,
     marginHorizontal: 10,
+    marginTop: -20,
   },
   // Style for the view containing the heading of the screen.
   headingview: {
     alignContent: "center",
-    marginBottom: 10,
     marginTop: -70,
+    marginBottom: 10,
   },
   // Style for the heading text.
   headingtext: {

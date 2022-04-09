@@ -22,7 +22,13 @@ import BLTPSOzKitSelectionScreen from "./screens/BLTPSOzKitSelectionScreen";
 import BLTPSWeaponInfoScreen from "./screens/BLTPSWeaponInfoScreen";
 import BLTPSShieldInfoScreen from "./screens/BLTPSShieldInfoScreen";
 import BLTPSGrenadeInfoScreen from "./screens/BLTPSGrenadeInfoScreen";
+import BLTPSClassModInfoScreen from "./screens/BLTPSClassModInfoScreen";
+import BLTPSOzKitInfoScreen from "./screens/BLTPSOzKitInfoScreen";
+import BL2WeaponSelectionScreen from "./screens/BL2WeaponSelectionScreen";
+import BL2ShieldSelectionScreen from "./screens/BL2ShieldSelectionScreen";
 
+import BL2WeaponInfoScreen from "./screens/BL2WeaponInfoScreen";
+import BL2ShieldInfoScreen from "./screens/BL2ShieldInfoScreen";
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => (
@@ -72,6 +78,16 @@ const AppNavigator = () => (
         name="BLTPSGrenadeInfo"
         component={BLTPSGrenadeInfoScreen}
       />
+      <Stack.Screen
+        name="BLTPSClassModInfo"
+        component={BLTPSClassModInfoScreen}
+      />
+      <Stack.Screen name="BLTPSOzKitInfo" component={BLTPSOzKitInfoScreen} />
+      <Stack.Screen name="BL2Weapons" component={BL2WeaponSelectionScreen} />
+      <Stack.Screen name="BL2Shields" component={BL2ShieldSelectionScreen} />
+
+      <Stack.Screen name="BL2WeaponInfo" component={BL2WeaponInfoScreen} />
+      <Stack.Screen name="BL2ShieldInfo" component={BL2ShieldInfoScreen} />
     </Stack.Navigator>
   </NavigationContainer>
 );

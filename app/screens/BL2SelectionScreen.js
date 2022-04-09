@@ -32,7 +32,7 @@ function BL2SelectionScreen(props) {
         </View>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Weapons Pressed")}
+          onPress={() => props.navigation.navigate("BL2Weapons")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>
@@ -48,7 +48,7 @@ function BL2SelectionScreen(props) {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Shields Pressed")}
+          onPress={() => props.navigation.navigate("BL2Shields")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>
