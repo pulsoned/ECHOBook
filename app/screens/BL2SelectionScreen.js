@@ -64,7 +64,7 @@ function BL2SelectionScreen(props) {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Grenades Pressed")}
+          onPress={() => props.navigation.navigate("BL2Grenades")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>
@@ -80,7 +80,7 @@ function BL2SelectionScreen(props) {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Class Mods Pressed")}
+          onPress={() => props.navigation.navigate("BL2ClassMods")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>
@@ -96,7 +96,7 @@ function BL2SelectionScreen(props) {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Relics Pressed")}
+          onPress={() => props.navigation.navigate("BL2Relics")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>

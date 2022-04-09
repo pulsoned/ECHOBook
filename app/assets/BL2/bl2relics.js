@@ -1,0 +1,80 @@
+export const bl2Relics = [
+  {
+    name: "Blood of Terramorphous",
+    rarity: "Legendary",
+    relic_type: "Survivability",
+    content: "Base Game",
+    icon_source: require("../BL2/relics/bloodofterramorphous.png"),
+    flavor_text: "His blood could inspire...",
+    card_image: require("../BL2/relics/bloodofterramorphouscard.png"),
+    loot_pool: "Dedicated Drop",
+    pool_description:
+      "Dedicated Drops are items that only drop from its dedicated sources.\n" +
+      "Unlike World Drops who can drop almost everywhere at a small chance.",
+    drop_sources: ["Terramorphous x2"],
+    drop_rates: ["1.4%"],
+    key: "bloodofterramorphous",
+  },
+  {
+    name: "Blood of the Ancients",
+    rarity: "E-Tech",
+    relic_type: "Universal",
+    content: "Upgrade Pack #1",
+    icon_source: require("../BL2/relics/bloodoftheancients.png"),
+    flavor_text: "",
+    card_image: require("../BL2/relics/bloodoftheancientscard.png"),
+    loot_pool: "Dedicated Drop",
+    pool_description:
+      "Dedicated Drops are items that only drop from its dedicated sources.\n" +
+      "Unlike World Drops who can drop almost everywhere at a small chance.",
+    drop_sources: ["Loot Midgets lvl.51+"],
+    drop_rates: ["12.5%"],
+    key: "bloodoftheancients",
+  },
+  {
+    name: "Blood of the Seraphs",
+    rarity: "Seraph",
+    relic_type: "Survivability",
+    content: "Pirate's Booty",
+    icon_source: require("../BL2/relics/bloodoftheseraphs.png"),
+    flavor_text: "Their power courses through you...",
+    card_image: require("../BL2/relics/bloodoftheseraphscard.png"),
+    loot_pool: "Buyable",
+    pool_description:
+      "Buyable Items can be bought from a shop with the right currency.",
+    drop_sources: ["Seraph Vendor"],
+    drop_rates: ["50 crystals"],
+    key: "bloodoftheseraphs",
+  },
+  {
+    name: "Bone of the Ancients",
+    rarity: "E-Tech",
+    relic_type: "Offense",
+    content: "Upgrade Pack #1",
+    icon_source: require("../BL2/relics/boneoftheancients.png"),
+    flavor_text: "",
+    card_image: require("../BL2/relics/boneoftheancientscard.png"),
+    loot_pool: "Dedicated Drop",
+    pool_description:
+      "Dedicated Drops are items that only drop from its dedicated sources.\n" +
+      "Unlike World Drops who can drop almost everywhere at a small chance.",
+    drop_sources: ["Loot Midgets lvl.51+"],
+    drop_rates: ["12.5%"],
+    key: "boneoftheancients",
+  },
+  {
+    name: "Breath of the Seraphs",
+    rarity: "Seraph",
+    relic_type: "Unique",
+    content: "Big Game Hunt",
+    icon_source: require("../BL2/relics/breathoftheseraphs.png"),
+    flavor_text: "Their return is to be feared...",
+    card_image: require("../BL2/relics/breathoftheseraphscard.png"),
+    loot_pool: "Buyable",
+    pool_description:
+      "Buyable Items can be bought from a shop with the right currency.",
+    drop_sources: ["Seraph Vendor"],
+    drop_rates: ["50 crystals"],
+    key: "breathoftheseraphs",
+  },
+];
