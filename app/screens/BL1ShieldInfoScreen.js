@@ -240,14 +240,16 @@ export default function BL1ShieldInfoScreen({ route, navigation }) {
           <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Elements</Text>
             {/* This block of functions determines whether or not to display element images based on if the weapon can be of that element */}
-            {determineKinetic(item.elements)}
-            {determineIncendiary(item.elements)}
-            {determineShock(item.elements)}
-            {determineCorrosive(item.elements)}
-            {determineExplosive(item.elements)}
-            {determineSlag(item.elements)}
-            {determineCryo(item.elements)}
-            {determineRadiation(item.elements)}
+            <View style={styles.elementview}>
+              {determineKinetic(item.elements)}
+              {determineIncendiary(item.elements)}
+              {determineShock(item.elements)}
+              {determineCorrosive(item.elements)}
+              {determineExplosive(item.elements)}
+              {determineSlag(item.elements)}
+              {determineCryo(item.elements)}
+              {determineRadiation(item.elements)}
+            </View>
           </View>
         </View>
 
@@ -406,10 +408,15 @@ const styles = StyleSheet.create({
   // Style for the element icons in the descriptive section on the button.
   elementimage: {
     resizeMode: "contain",
-    flex: 0.3,
+    flex: 0.16,
     maxHeight: 35,
     marginHorizontal: 2,
     alignSelf: "center",
+  },
+  elementview: {
+    flexDirection: "row",
+    flex: 1,
+    justifyContent: "flex-end",
   },
   //Style for the View containing the basic information on the item.
   infoView1: {

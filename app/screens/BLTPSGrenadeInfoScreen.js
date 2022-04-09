@@ -182,7 +182,7 @@ function showFlavorText(flavorText) {
   }
 }
 
-export default function BL1GrenadeInfoScreen({ route, navigation }) {
+export default function BLTPSGrenadeInfoScreen({ route, navigation }) {
   const item = route.params;
   return (
     // This is the background for this screen
@@ -195,7 +195,7 @@ export default function BL1GrenadeInfoScreen({ route, navigation }) {
       <ScrollView style={styles.scroll} stickyHeaderIndices={[0]}>
         {/* This Touchable is the back button */}
         <TouchableOpacity
-          onPress={() => navigation.navigate("BL1Grenades")}
+          onPress={() => navigation.navigate("BLTPSGrenades")}
           style={styles.backbutton}
         >
           <View>
@@ -204,7 +204,7 @@ export default function BL1GrenadeInfoScreen({ route, navigation }) {
         </TouchableOpacity>
         {/* This View contains the heading for this screen. */}
         <View style={styles.headingview}>
-          <Text style={styles.subheadingtext}>Borderlands 1</Text>
+          <Text style={styles.subheadingtext}>Borderlands TPS</Text>
         </View>
         <View style={styles.imageView}>
           <Text

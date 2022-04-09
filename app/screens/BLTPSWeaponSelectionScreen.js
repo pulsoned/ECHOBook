@@ -179,8 +179,7 @@ export default function BLTPSWeaponSelectionScreen(props) {
             <TouchableHighlight
               key={item.key}
               style={styles.button}
-              //   onPress={() => props.navigation.navigate("BLTPSWeaponInfo", item)}
-              onPress={() => Alert.alert(item.name)}
+              onPress={() => props.navigation.navigate("BLTPSWeaponInfo", item)}
             >
               <View style={styles.buttonView}>
                 {/* This is the section of the button containing the name of the item and its picture. */}

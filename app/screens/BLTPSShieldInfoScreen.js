@@ -182,7 +182,7 @@ function showFlavorText(flavorText) {
   }
 }
 
-export default function BL1GrenadeInfoScreen({ route, navigation }) {
+export default function BLTPSShieldInfoScreen({ route, navigation }) {
   const item = route.params;
   return (
     // This is the background for this screen
@@ -193,9 +193,8 @@ export default function BL1GrenadeInfoScreen({ route, navigation }) {
     >
       {/* Allows the screen to have more info via scrolling */}
       <ScrollView style={styles.scroll} stickyHeaderIndices={[0]}>
-        {/* This Touchable is the back button */}
         <TouchableOpacity
-          onPress={() => navigation.navigate("BL1Grenades")}
+          onPress={() => navigation.navigate("BLTPSShields")}
           style={styles.backbutton}
         >
           <View>
@@ -204,7 +203,7 @@ export default function BL1GrenadeInfoScreen({ route, navigation }) {
         </TouchableOpacity>
         {/* This View contains the heading for this screen. */}
         <View style={styles.headingview}>
-          <Text style={styles.subheadingtext}>Borderlands 1</Text>
+          <Text style={styles.subheadingtext}>Borderlands TPS</Text>
         </View>
         <View style={styles.imageView}>
           <Text
@@ -223,8 +222,8 @@ export default function BL1GrenadeInfoScreen({ route, navigation }) {
             <Text style={styles.info1Info}>{item.content}</Text>
           </View>
           <View style={styles.textBorder}>
-            <Text style={styles.info1Text}>Grenade Type</Text>
-            <Text style={styles.info1Info}>{item.grenade_type}</Text>
+            <Text style={styles.info1Text}>Shield Type</Text>
+            <Text style={styles.info1Info}>{item.shield_type}</Text>
           </View>
           <View style={styles.textBorder}>
             <Text style={styles.info1Text}>Rarity</Text>
@@ -242,11 +241,11 @@ export default function BL1GrenadeInfoScreen({ route, navigation }) {
             <Text style={styles.info1Text}>Elements</Text>
             {/* This block of functions determines whether or not to display element images based on if the weapon can be of that element */}
             <View style={styles.elementview}>
-              {determineExplosive(item.elements)}
               {determineKinetic(item.elements)}
               {determineIncendiary(item.elements)}
               {determineShock(item.elements)}
               {determineCorrosive(item.elements)}
+              {determineExplosive(item.elements)}
               {determineSlag(item.elements)}
               {determineCryo(item.elements)}
               {determineRadiation(item.elements)}

@@ -80,7 +80,7 @@ function BLTPSSelectionScreen(props) {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Class Mods Pressed")}
+          onPress={() => props.navigation.navigate("BLTPSClassMods")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>
@@ -96,7 +96,7 @@ function BLTPSSelectionScreen(props) {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Oz Kits Pressed")}
+          onPress={() => props.navigation.navigate("BLTPSOzKits")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>

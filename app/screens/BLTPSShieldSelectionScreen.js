@@ -179,8 +179,7 @@ export default function BLTPSShieldSelectionScreen(props) {
             <TouchableHighlight
               key={item.key}
               style={styles.button}
-              //   onPress={() => props.navigation.navigate("BL1ShieldInfo", item)}
-              onPress={() => Alert.alert(item.name)}
+              onPress={() => props.navigation.navigate("BLTPSShieldInfo", item)}
             >
               <View style={styles.buttonView}>
                 {/* This is the section of the button containing the name of the item and its picture. */}
@@ -242,7 +241,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     width: "97%",
-    height: 200,
     alignSelf: "center",
     margin: 2,
     marginTop: 6,
@@ -252,7 +250,6 @@ const styles = StyleSheet.create({
   // Style for the name of the item on the button.
   buttonText: {
     fontFamily: "Lato-Regular",
-    flex: 1,
     fontSize: 30,
     alignSelf: "center",
     textAlign: "center",
@@ -260,22 +257,20 @@ const styles = StyleSheet.create({
   // Style for the image of the item on the button.
   buttonImage: {
     resizeMode: "contain",
-    flex: 1,
     alignSelf: "center",
+    height: 140,
+    width: "97%",
   },
   // Style for the view that contains everything on the buttons.
   buttonView: {
-    flex: 1,
     flexDirection: "row",
   },
   // Style for the dynamic descriptive text about the item on the buttons.
   descriptiontext: {
     color: colors.white,
     fontFamily: "Lato-Regular",
-    justifyContent: "flex-start",
     fontSize: 15,
     marginLeft: 10,
-    marginRight: 10,
     paddingVertical: 5,
   },
   // Style for the non-dynamic descriptive text about the item on the buttons.
@@ -291,14 +286,14 @@ const styles = StyleSheet.create({
   // Style for the View that includes the descriptive text on the buttons.
   descriptionview: {
     flex: 0.4,
-    justifyContent: "flex-start",
+    justifyContent: "center",
+    paddingVertical: 5,
   },
   // Style for the View that includes the name and picture of the item.
   namepictureview: {
     borderRightColor: colors.black,
     borderRightWidth: 2,
     flex: 0.6,
-    paddingTop: 20,
   },
   // Style for the ScrollView (to make sure the physical phone doesn't cover anything).
   scroll: {
@@ -309,14 +304,13 @@ const styles = StyleSheet.create({
   elementimage: {
     resizeMode: "contain",
     flex: 0.15,
+    height: 30,
     margin: 1,
   },
   // Style for the View containing the element icons.
   elementimageview: {
     flexDirection: "row",
-    flex: 0.3,
     marginHorizontal: 10,
-    marginTop: -20,
   },
   // Style for the view containing the heading of the screen.
   headingview: {
