@@ -34,6 +34,17 @@ import BL2ShieldInfoScreen from "./screens/BL2ShieldInfoScreen";
 import BL2GrenadeInfoScreen from "./screens/BL2GrenadeInfoScreen";
 import BL2ClassModInfoScreen from "./screens/BL2ClassModInfoScreen";
 import BL2RelicInfoScreen from "./screens/BL2RelicInfoScreen";
+import BL3WeaponSelectionScreen from "./screens/BL3WeaponSelectionScreen";
+import BL3ShieldSelectionScreen from "./screens/BL3ShieldSelectionScreen";
+import BL3GrenadeSelectionScreen from "./screens/BL3GrenadeSelectionScreen";
+import BL3ClassModSelectionScreen from "./screens/BL3ClassModSelectionScreen";
+import BL3ArtifactSelectionScreen from "./screens/BL3ArtifactSelectionScreen";
+import BL3WeaponInfoScreen from "./screens/BL3WeaponInfoScreen";
+import BL3ShieldInfoScreen from "./screens/BL3ShieldInfoScreen";
+import BL3GrenadeInfoScreen from "./screens/BL3GrenadeInfoScreen";
+import BL3ClassModInfoScreen from "./screens/BL3ClassModInfoScreen";
+import BL3ArtifactInfoScreen from "./screens/BL3ArtifactInfoScreen";
+
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => (
@@ -101,6 +112,22 @@ const AppNavigator = () => (
       <Stack.Screen name="BL2GrenadeInfo" component={BL2GrenadeInfoScreen} />
       <Stack.Screen name="BL2ClassModInfo" component={BL2ClassModInfoScreen} />
       <Stack.Screen name="BL2RelicInfo" component={BL2RelicInfoScreen} />
+      <Stack.Screen name="BL3Weapons" component={BL3WeaponSelectionScreen} />
+      <Stack.Screen name="BL3Shields" component={BL3ShieldSelectionScreen} />
+      <Stack.Screen name="BL3Grenades" component={BL3GrenadeSelectionScreen} />
+      <Stack.Screen
+        name="BL3ClassMods"
+        component={BL3ClassModSelectionScreen}
+      />
+      <Stack.Screen
+        name="BL3Artifacts"
+        component={BL3ArtifactSelectionScreen}
+      />
+      <Stack.Screen name="BL3WeaponInfo" component={BL3WeaponInfoScreen} />
+      <Stack.Screen name="BL3ShieldInfo" component={BL3ShieldInfoScreen} />
+      <Stack.Screen name="BL3GrenadeInfo" component={BL3GrenadeInfoScreen} />
+      <Stack.Screen name="BL3ClassModInfo" component={BL3ClassModInfoScreen} />
+      <Stack.Screen name="BL3ArtifactInfo" component={BL3ArtifactInfoScreen} />
     </Stack.Navigator>
   </NavigationContainer>
 );

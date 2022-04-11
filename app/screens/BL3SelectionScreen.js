@@ -32,7 +32,7 @@ export default function BL3SelectionScreen(props) {
         </View>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Weapons Pressed")}
+          onPress={() => props.navigation.navigate("BL3Weapons")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>
@@ -48,7 +48,7 @@ export default function BL3SelectionScreen(props) {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Shields Pressed")}
+          onPress={() => props.navigation.navigate("BL3Shields")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>
@@ -64,7 +64,7 @@ export default function BL3SelectionScreen(props) {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Grenades Pressed")}
+          onPress={() => props.navigation.navigate("BL3Grenades")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>
@@ -80,7 +80,7 @@ export default function BL3SelectionScreen(props) {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Class Mods Pressed")}
+          onPress={() => props.navigation.navigate("BL3ClassMods")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>
@@ -96,7 +96,7 @@ export default function BL3SelectionScreen(props) {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => alert("Artifacts Pressed")}
+          onPress={() => props.navigation.navigate("BL3Artifacts")}
         >
           <View style={styles.buttonView}>
             <View style={styles.imageView}>
