@@ -17,7 +17,7 @@ export const bl3Artifacts = [
     key: "commanderplanetoid",
   },
   {
-    name: "Commander Planetoid",
+    name: "Company Man",
     rarity: "Legendary",
     artifact_type: "Unique",
     content: "Director's Cut",
