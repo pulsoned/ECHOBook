@@ -75,7 +75,7 @@ export const bl2Shields = [
     elements: "KS",
     content: "Base Game",
     icon_source: require("../BL2/shields/blackhole.png"),
-    flavor_text: "If you can't beat 'em, join 'em.",
+    flavor_text: "You are the center of the universe.",
     card_image: require("../BL2/shields/blackholecard.png"),
     loot_pool: "Quest Reward",
     pool_description:

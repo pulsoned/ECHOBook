@@ -79,7 +79,7 @@ export const bl2Grenades = [
     elements: "S",
     content: "Assault on Dragon Keep",
     icon_source: require("../BL2/grenades/chainlightning.png"),
-    flavor_text: "By fire be purged!",
+    flavor_text: "Don't pay it back, pay it forward.",
     card_image: require("../BL2/grenades/chainlightningcard.png"),
     loot_pool: "Dedicated Drop",
     pool_description:

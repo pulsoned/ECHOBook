@@ -75,7 +75,7 @@ export const bltpsGrenades = [
     elements: "S",
     content: "Claptastic Voyage",
     icon_source: require("../BLTPS/grenades/datascrubber.png"),
-    flavor_text: "BOOM baby, BOOM!",
+    flavor_text: "Peer-to-peer shield sharing.",
     card_image: require("../BLTPS/grenades/datascrubbercard.png"),
     loot_pool: "Quest Reward",
     pool_description:
